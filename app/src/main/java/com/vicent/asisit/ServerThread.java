@@ -21,6 +21,7 @@ public class ServerThread extends Thread {
     public static final int MSG_DRAW_BEGIN = 0x200;
     public static final int MSG_DRAW_HOUYI = 0x201;
     public static final int MSG_DRAW_CHENGYAOJING = 0x202;
+    public static final int MSG_DRAW_MENGQI = 0x203;
     //Log用的TAG
     public static final String TAG = "ServerThread";
 
@@ -58,6 +59,7 @@ public class ServerThread extends Thread {
                 switch (msg.what){
                     case MSG_DRAW_HOUYI:
                     case MSG_DRAW_CHENGYAOJING:
+                    case MSG_DRAW_MENGQI:
                         mDrawLayout.setHeroType(msg.what);
                         break;
                     case MSG_CLERA_VIEW:
