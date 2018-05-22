@@ -18,11 +18,13 @@ import java.util.List;
 
 import static com.vicent.asisit.ServerThread.MSG_DRAW_HOUYI;
 import static com.vicent.asisit.ServerThread.MSG_DRAW_CHENGYAOJING;
+import static com.vicent.asisit.ServerThread.MSG_DRAW_MENGQI;
 
 public class MainActivity extends AppCompatActivity {
 
     Button button_houyi;
     Button button_yaojin;
+    Button button_mengqi;
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
@@ -56,7 +58,14 @@ public class MainActivity extends AppCompatActivity {
                 MyApplication.mThread.sendMsg(MSG_DRAW_CHENGYAOJING);
             }
         });
-
+        button_mengqi = (Button) findViewById(R.id.button_mengqi);
+        button_mengqi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("vicent", "click");
+                MyApplication.mThread.sendMsg(MSG_DRAW_MENGQI);
+            }
+        });
         if (Settings.canDrawOverlays(MainActivity.this))
         {
             //finish();
